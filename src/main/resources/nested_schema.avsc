@@ -1,0 +1,24 @@
+{
+    "namespace": "com.andyduss.avro",
+    "type": "record",
+    "name": "User",
+    "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "age", "type": "int"},
+        {"name": "favorite_number",  "type": ["null", "int"], "default": null},
+        {"name": "favorite_color", "type": ["null", "string"], "default": null},
+        {
+            "name": "manager",
+            "default": null,
+            "type": {
+                "name": "manager",
+                "type": "record",
+                "namespace": "com.andyduss.avro.user",
+                "fields": [
+                    {"name": "id", "type": ["null", "int"], "default": null},
+                    {"name": "code", "type": ["null", "string"], "default": null}
+                ]
+            }
+        }
+    ]
+}
